@@ -14,7 +14,7 @@ body {
   font-size: 16px;
 }
 
-.header {
+body .header {
   background-color: #2d9ae2;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -29,7 +29,21 @@ body {
           justify-content: center;
 }
 
-.link {
+body .header .dropdown {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+body .header .dropdown .link {
   padding: 6px 16px;
   margin: 6px;
   text-decoration: none;
@@ -40,12 +54,12 @@ body {
   outline: none;
 }
 
-.link:hover {
+body .header .dropdown .link:hover {
   background-color: #e6c221;
   cursor: pointer;
 }
 
-.conteudo {
+body .header .dropdown .conteudo {
   background-color: #ebe9e9;
   list-style: none;
   width: 100px;
@@ -64,29 +78,42 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
-.conteudo li {
+body .header .dropdown .conteudo::before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  top: 5px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+  display: inline;
+  background-color: #ebe9e9;
+  position: relative;
+}
+
+body .header .dropdown .conteudo li {
   margin-left: 10px;
   padding: 10px;
 }
 
-.conteudo li:hover {
+body .header .dropdown .conteudo li:hover {
   color: #523c02;
   cursor: pointer;
 }
 
-.dropdown {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
+.dropdown > .link:hover + .conteudo {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown > .link + .conteudo:hover {
+  opacity: 1;
+  visibility: visible;
 }
 /*# sourceMappingURL=style.css.map */
